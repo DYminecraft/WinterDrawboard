@@ -1,0 +1,10 @@
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin: 10px;
+}
+app-side-toolbar{
+  margin: 5px 10px 0 0;
+}

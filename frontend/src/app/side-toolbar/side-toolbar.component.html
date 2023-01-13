@@ -1,0 +1,53 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        绘板面板
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content id="size">
+        <button
+          mat-mini-fab
+          color="primary">
+          <mat-icon>zoom_in</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          color="primary">
+          <mat-icon>zoom_out</mat-icon>
+        </button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        颜色面板
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content id="color">
+
+      <mat-form-field appearance="outline">
+        <mat-label [ngStyle]="{'background-color':color}">当前颜色</mat-label>
+        <input
+          matNativeControl
+          [(ngModel)]="color"
+          [mtxColorpicker]="picker"
+          [format]="format"
+          [ngStyle]="{'background-color':color}">
+        <mat-hint><a
+          href="https://www.office26.com/rgb.html"
+          target="_blank">十六进制颜色码参考</a></mat-hint>
+        <mtx-colorpicker-toggle
+          matSuffix
+          [for]="picker"></mtx-colorpicker-toggle>
+        <mtx-colorpicker #picker></mtx-colorpicker>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,0 +1,14 @@
+<div
+  [ngStyle]="{'height':canvas.divHeight,'width':canvas.divWidth}">
+  <ng-scrollbar
+    class="scroll-event"
+    track="all"
+    visibility="always">
+    <canvas
+      id="canvas"
+      [height]="canvas.canvasHeight"
+      [width]="canvas.canvasWidth">
+    </canvas>
+  </ng-scrollbar>
+</div>
+

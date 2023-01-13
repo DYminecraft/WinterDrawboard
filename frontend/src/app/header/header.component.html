@@ -1,0 +1,48 @@
+<mat-toolbar class="mat-primary">
+  <img
+    ngSrc="/assets/images/bhsf-30.png"
+    height="30"
+    width="30"
+    alt="bhsf-30"
+    routerLink="/main">
+  <span class="mat-body-2">
+    <a routerLink="/main"
+       id="title">
+      冬日绘板
+    </a>
+  </span>
+
+  <span class="split"></span>
+
+  <span
+    class="mat-body-2"
+    *ngIf="isLogIn()">
+      欢迎回来，{{userNameOrNickname}}
+    </span>
+  <button
+    mat-icon-button
+    *ngIf="isLogIn()"
+    [matMenuTriggerFor]="menu">
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu>
+    <a
+      mat-menu-item
+      routerLink="/user">
+      <mat-icon>account_circle</mat-icon>
+      账户
+    </a>
+    <a
+      mat-menu-item
+      routerLink="/feedback">
+      <mat-icon>feedback</mat-icon>
+      反馈
+    </a>
+    <a
+      mat-menu-item
+      routerLink="/">
+      <mat-icon>exit_to_app</mat-icon>
+      注销
+    </a>
+  </mat-menu>
+</mat-toolbar>

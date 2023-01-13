@@ -1,0 +1,18 @@
+div{
+  width: 400px;
+  height: 300px;
+  padding: 0 10px 10px 0;
+}
+ng-scrollbar.scroll-event {
+  --scrollbar-size: 8px;
+  --scrollbar-thumb-color: gray;
+  --scrollbar-hover-size: 12px;
+  --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+  --scrollbar-border-radius: 10px;
+
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+}
+canvas{
+  border: black solid 1px;
+}
