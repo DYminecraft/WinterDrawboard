@@ -1,14 +1,13 @@
 div {
+  /*竖向垂直居中*/
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 mat-card {
+  /*收敛卡片宽度，便于阅读*/
   max-width: 80%;
-  margin: 10px 0;
-}
-
-a {
-  text-align: center;
+  /*卡片底部间隔*/
+  margin-bottom: 10px;
 }

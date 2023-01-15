@@ -1,8 +1,16 @@
 mat-card {
-  max-height: 100%;
+  /*内容距离边框*/
+  padding: 15px 15px 25px;
+
+  /*铺满空间*/
   height: 100%;
-  padding-bottom: 15px;
+
+  /*竖向、水平居中、垂直居中*/
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  /*背景颜色*/
   background-color: #ffffff80;
 }

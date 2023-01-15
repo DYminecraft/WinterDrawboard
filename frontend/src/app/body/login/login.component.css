@@ -1,25 +1,16 @@
-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-mat-card {
-  max-width: 80%;
-  margin: 10px 0;
-}
-
 mat-card-header {
+  /*水平居中*/
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
-mat-card-content {
-  margin-top: 15px;
+mat-divider{
+  /*分割线上下距离*/
+  margin: 10px 0 15px;
 }
 
 form {
+  /*竖向、垂直居中、水平居中*/
   display: flex;
   flex-direction: column;
   align-items: center;

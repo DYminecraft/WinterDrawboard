@@ -1,20 +1,25 @@
 mat-toolbar{
+  /*标题栏高度*/
   height: 50px;
 }
 
 #title{
+  /*Logo 和标题间隔*/
+  margin-left: 10px;
+  /*标题字体*/
+  font-size: 1rem;
   text-decoration: none;
   color: inherit;
 }
 
 .split{
+  /*标题栏左右分割*/
   flex: 1 1 auto;
 }
 
-img{
-  margin-right: 5px;
-}
-
-.mat-body-2{
+#message{
+  /*消息和按钮间隔*/
   margin-right: -1rem;
+  /*消息字体*/
+  font-size: 0.9rem;
 }

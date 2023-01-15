@@ -12,7 +12,7 @@ export class LoginComponent {
   clientNameOrNicknameErrorMessage: string = "";
   clientPasswordErrorMessage: string = "";
 
-  constructor(private authService:AuthService) {
+  constructor(private authService: AuthService) {
   }
 
   isClientNameOrNicknameInvalid(input: NgModel) {
@@ -24,9 +24,9 @@ export class LoginComponent {
     }
   }
 
-  isUserPasswordInvalid(input: NgModel) {
+  isClientPasswordInvalid(input: NgModel) {
     if (input.invalid) {
-      this.userPasswordErrorMessage = "密码不能为空";
+      this.clientPasswordErrorMessage = "密码不能为空";
       return true;
     }
     return false;
@@ -36,12 +36,6 @@ export class LoginComponent {
     if (form.invalid) {
       return;
     }
-    this.authService.login()
-    console.log(enteredUserInformation);
-    this.http.post("http://localhost:3000/api/user/login", {data: enteredUserInformation})
-      .subscribe((data) => {
-        console.log(data);
-      });
     form.resetForm();
   }
 }

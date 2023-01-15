@@ -1,37 +1,28 @@
-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-mat-card {
-  max-width: 80%;
-  margin: 10px 0;
-}
-
 mat-card-header {
+  /*标题居中*/
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
-mat-card-content {
-  margin-top: 15px;
+mat-divider{
+  /*分割线上下距离*/
+  margin: 10px 0 15px;
 }
 
 form {
+  /*竖向、垂直居中*/
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #button{
+  /*按钮横向摆放*/
   display: flex;
   flex-direction: row;
 }
+
 a{
-  margin: 0 10px 0 0;
-}
-button{
-  margin: 0 0 0 10px;
+  /*返回和更改按钮间距*/
+  margin-right: 15px;
 }

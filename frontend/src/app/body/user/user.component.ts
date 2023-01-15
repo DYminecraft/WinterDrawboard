@@ -9,4 +9,5 @@ export class UserComponent {
   userName: string = "董一玮";
   userNickname: string = "Annst";
   userPassword: string = "AnnstPassword";
+  userNewPassword: string = "";
 }

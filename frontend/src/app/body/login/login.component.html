@@ -1,50 +1,48 @@
-<div>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title
-        class="mat-headline-5">
-        请登录
-      </mat-card-title>
-    </mat-card-header>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title
+      class="mat-headline-5">
+      请登录
+    </mat-card-title>
+  </mat-card-header>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-    <mat-card-content>
-      <form (ngSubmit)="onSubmit(loginForm)"
-            #loginForm="ngForm">
-        <mat-form-field hideRequiredMarker>
-          <mat-label>姓名/昵称</mat-label>
-          <input
-            ngModel
-            name="clientNameOrNickname"
-            #clientNameOrNickname="ngModel"
-            matNativeControl
-            required
-            type="text"
-            maxlength="10">
-          <mat-error *ngIf="isClientNameOrNicknameInvalid(clientNameOrNickname)">{{userNameOrNicknameErrorMessage}}</mat-error>
-        </mat-form-field>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit(loginForm)"
+          #loginForm="ngForm">
+      <mat-form-field hideRequiredMarker>
+        <mat-label>姓名/昵称</mat-label>
+        <input
+          ngModel
+          name="clientNameOrNickname"
+          #clientNameOrNickname="ngModel"
+          matNativeControl
+          required
+          type="text"
+          maxlength="10">
+        <mat-error *ngIf="isClientNameOrNicknameInvalid(clientNameOrNickname)">{{clientNameOrNicknameErrorMessage}}</mat-error>
+      </mat-form-field>
 
-        <mat-form-field hideRequiredMarker>
-          <mat-label>密码</mat-label>
-          <input
-            ngModel
-            name="clientPassword"
-            #clientPassword="ngModel"
-            matNativeControl
-            required
-            type="password">
-          <mat-error *ngIf="isClientPasswordInvalid(clientPassword)">{{userPasswordErrorMessage}}</mat-error>
-        </mat-form-field>
+      <mat-form-field hideRequiredMarker>
+        <mat-label>密码</mat-label>
+        <input
+          ngModel
+          name="clientPassword"
+          #clientPassword="ngModel"
+          matNativeControl
+          required
+          type="password">
+        <mat-error *ngIf="isClientPasswordInvalid(clientPassword)">{{clientPasswordErrorMessage}}</mat-error>
+      </mat-form-field>
 
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit">
-          <mat-icon>done_outline</mat-icon>
-          确认
-        </button>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit">
+        <mat-icon>done_outline</mat-icon>
+        确认
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

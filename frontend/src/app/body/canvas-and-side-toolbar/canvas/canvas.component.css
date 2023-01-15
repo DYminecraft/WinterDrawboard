@@ -1,18 +1,19 @@
-div{
-  width: 400px;
-  height: 300px;
-  padding: 0 10px 10px 0;
-}
 ng-scrollbar.scroll-event {
-  --scrollbar-size: 8px;
-  --scrollbar-thumb-color: gray;
-  --scrollbar-hover-size: 12px;
-  --scrollbar-track-color: rgba(0, 0, 0, 0.05);
-  --scrollbar-border-radius: 10px;
-
-  border-radius: 3px;
+  /*滚动边框*/
   border: 2px solid rgba(0, 0, 0, 0.05);
+
+  /*滚动条平常宽度*/
+  --scrollbar-size: 6px;
+  /*滚动条hover宽度*/
+  --scrollbar-hover-size: 8px;
+  --scrollbar-border-radius: 10px;
+  /*滚动条颜色*/
+  --scrollbar-thumb-color: gray;
+  /*滚动槽颜色*/
+  --scrollbar-track-color: rgba(0, 0, 0, 0.05);
 }
-canvas{
+
+canvas {
+  /*绘板边框*/
   border: black solid 1px;
 }

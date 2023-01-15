@@ -5,7 +5,7 @@
     width="30"
     alt="bhsf-30"
     routerLink="/main">
-  <span class="mat-body-2">
+  <span>
     <a routerLink="/main"
        id="title">
       冬日绘板
@@ -15,8 +15,8 @@
   <span class="split"></span>
 
   <span
-    class="mat-body-2"
-    *ngIf="isLogIn()">
+    *ngIf="isLogIn()"
+    id="message">
       欢迎回来，{{userNameOrNickname}}
     </span>
   <button

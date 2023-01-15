@@ -1,39 +1,37 @@
-<div>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        反馈
-      </mat-card-title>
-    </mat-card-header>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      反馈
+    </mat-card-title>
+  </mat-card-header>
 
-    <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
 
-    <mat-card-content>
-      <form>
-        <mat-form-field>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
           <textarea
             matNativeControl
             rows="4"
             placeholder="任何的想法或建议……"></textarea>
-        </mat-form-field>
-        <div id="button">
-          <a
-            mat-raised-button
-            color="primary"
-            routerLink="/canvas">
-            <mat-icon>arrow_back</mat-icon>
-            返回
-          </a>
-          <button
-            mat-raised-button
-            color="primary"
-            type="submit"
-            routerLink="/canvas">
-            <mat-icon>done_outline</mat-icon>
-            更改
-          </button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-</div>
+      </mat-form-field>
+      <div id="button">
+        <a
+          mat-raised-button
+          color="primary"
+          routerLink="/canvas">
+          <mat-icon>arrow_back</mat-icon>
+          返回
+        </a>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          routerLink="/canvas">
+          <mat-icon>done_outline</mat-icon>
+          提交
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

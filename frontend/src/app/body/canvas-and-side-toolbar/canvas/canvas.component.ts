@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+
 // import {fromEvent, debounceTime} from "rxjs";
 
 @Component({
@@ -10,8 +11,8 @@ export class CanvasComponent {
   canvas: any = {
     id: null,
     pen: null,
-    divHeight:500,
-    divWidth:500,
+    divHeight: 500,
+    divWidth: 1000,
     canvasHeight: 2800,
     canvasWidth: 4000,
     pixelSize: 50,
@@ -24,6 +25,10 @@ export class CanvasComponent {
       ["555555", "555555", "555555"]
     ]
   };
+
+  getDivStyle() {
+    return {"height": this.canvas.divHeight + "px", "width": this.canvas.divWidth + "px"};
+  }
 
   ngAfterViewInit() {
     // fromEvent(window, "resize")

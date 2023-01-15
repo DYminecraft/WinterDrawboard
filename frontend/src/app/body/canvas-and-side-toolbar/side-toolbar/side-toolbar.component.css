@@ -1,31 +1,34 @@
 mat-card {
+  /*卡片宽度*/
   width: 188px;
-  margin: 10px 0;
+}
+#canvas{
+  /*绘板面板和颜色面板间距*/
+  margin-bottom: 10px;
 }
 mat-card-header{
+  /*标题居中*/
   display: flex;
   justify-content: center;
+}
+mat-divider{
+  /*分割线上下距离*/
+  margin: 5px 0 15px;
 }
 mat-card-content{
+  /*内容居中*/
   display: flex;
   justify-content: center;
-  padding-top: 10px;
 }
 #size{
+  /*绘板面板按钮横向*/
   flex-direction: row;
 }
 button{
-  margin: 0 2px 0 ;
-}
-#color{
-  flex-direction: column;
-}
-mat-form-field {
-  width: 100%;
-  margin: 10px 0 0 0;
+  /*绘板面板按钮间距*/
+  margin: 0 5px 0 ;
 }
 a{
-  height: 100%;
-  width: 100%;
+  /*消除a标签装饰*/
   text-decoration: none;
 }

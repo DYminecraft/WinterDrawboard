@@ -3,7 +3,7 @@ import {UserModel} from "./user.model";
 
 @Injectable({providedIn: "root"})
 export class AuthService {
-  login(clientNameOrNickname: string, clientPassword) {
+  login(clientNameOrNickname: string, clientPassword:string) {
     const clientUser: UserModel = {
       id: "",
       name: clientNameOrNickname,

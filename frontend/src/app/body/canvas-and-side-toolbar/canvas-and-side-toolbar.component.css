@@ -1,10 +1,21 @@
 div{
+  /*水平*/
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  margin: 10px;
 }
 app-side-toolbar{
-  margin: 5px 10px 0 0;
+  /*工具栏和画布间距*/
+  margin-right: 10px;
+
+  /*竖直、垂直居中、水平居中*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+app-canvas{
+  /*竖直、垂直居中、水平居中*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

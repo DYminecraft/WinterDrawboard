@@ -1,8 +1,13 @@
-div{
+div {
+  /*竖向*/
   display: flex;
   flex-direction: column;
+
+  /*铺满剩余高度*/
   height: 100vh;
 }
-app-body{
+
+app-body {
+  /*body 铺满剩余高度*/
   flex: 1;
 }
