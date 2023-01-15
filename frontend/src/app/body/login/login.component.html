@@ -10,33 +10,37 @@
     <mat-divider></mat-divider>
 
     <mat-card-content>
-      <form #login="ngForm">
+      <form (ngSubmit)="onSubmit(loginForm)"
+            #loginForm="ngForm">
         <mat-form-field hideRequiredMarker>
           <mat-label>姓名/昵称</mat-label>
           <input
-            [(ngModel)]="nameOrNickname"
-            [ngModelOptions]="{standalone: true}"
+            ngModel
+            name="clientNameOrNickname"
+            #clientNameOrNickname="ngModel"
             matNativeControl
             required
             type="text"
             maxlength="10">
+          <mat-error *ngIf="isClientNameOrNicknameInvalid(clientNameOrNickname)">{{userNameOrNicknameErrorMessage}}</mat-error>
         </mat-form-field>
 
         <mat-form-field hideRequiredMarker>
           <mat-label>密码</mat-label>
           <input
-            [(ngModel)]="password"
-            [ngModelOptions]="{standalone: true}"
+            ngModel
+            name="clientPassword"
+            #clientPassword="ngModel"
             matNativeControl
             required
             type="password">
+          <mat-error *ngIf="isClientPasswordInvalid(clientPassword)">{{userPasswordErrorMessage}}</mat-error>
         </mat-form-field>
 
         <button
-          mat-flat-button
+          mat-raised-button
           color="primary"
-          type="submit"
-          routerLink="/canvas">
+          type="submit">
           <mat-icon>done_outline</mat-icon>
           确认
         </button>

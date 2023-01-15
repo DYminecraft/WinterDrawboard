@@ -1,11 +1,11 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 
-import {LoginComponent} from "./login/login.component";
-import {MainComponent} from "./main/main.component";
-import {UserComponent} from "./user/user.component";
-import {FeedbackComponent} from "./feedback/feedback.component";
-import {CanvasAndSideToolbarComponent} from "./canvas-and-side-toolbar/canvas-and-side-toolbar.component";
+import {LoginComponent} from "./body/login/login.component";
+import {MainComponent} from "./body/main/main.component";
+import {UserComponent} from "./body/user/user.component";
+import {FeedbackComponent} from "./body/feedback/feedback.component";
+import {CanvasAndSideToolbarComponent} from "./body/canvas-and-side-toolbar/canvas-and-side-toolbar.component";
 
 
 const routes: Routes = [
