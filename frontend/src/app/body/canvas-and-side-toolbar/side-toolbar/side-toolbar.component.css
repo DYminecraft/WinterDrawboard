@@ -2,7 +2,7 @@ mat-card {
   /*卡片宽度*/
   width: 188px;
 }
-#canvas{
+#canvasPanel{
   /*绘板面板和颜色面板间距*/
   margin-bottom: 10px;
 }

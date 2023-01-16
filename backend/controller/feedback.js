@@ -33,7 +33,8 @@ exports.delete = (req, res) => {
     Feedback.findOne({_id: req.body.feedbackId, creator: req.body.clientId})
             .then(databaseReturn => {
                 // 如果不存在此用户创建的这条反馈，401
-                if (!databaseReturn) res.status(401).json({message: "删除反馈失败"});
+                if (databaseReturn.n===0) res.status(401).json({message: "删除反馈失败"});
+
                 // 如果存在，删除
                 return Feedback.deleteOne(databaseReturn);
             })
@@ -52,6 +53,7 @@ exports.update = (req, res) => {
             .then(databaseReturn => {
                 // 如果不存在此用户创建的这条反馈，401
                 if (!databaseReturn) res.status(401).json({message: "更改反馈失败"});
+
                 // 如果存在，更新
                 return Feedback.updateOne(databaseReturn, {content: req.body.content});
             })
@@ -69,6 +71,7 @@ exports.like = (req, res) => {
             .then(databaseReturn => {
                 // 如果不存在这条反馈，401
                 if (!databaseReturn) res.status(401).json({message: "点赞反馈失败"});
+
                 // 如果存在，①反馈点赞数加一
                 return Feedback.updateOne(databaseReturn, {agreement: databaseReturn.agreement + 1});
             })

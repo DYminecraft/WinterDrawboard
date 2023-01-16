@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {ColorFormat} from "@ng-matero/extensions/colorpicker";
+import {PanelService} from "../panel.service";
 
 @Component({
   selector: "app-side-toolbar",
@@ -7,6 +8,12 @@ import {ColorFormat} from "@ng-matero/extensions/colorpicker";
   styleUrls: ["./side-toolbar.component.css"]
 })
 export class SideToolbarComponent {
-  color = '#00ffff99';
-  format: ColorFormat = 'hex';
+  color = "#00ffff99";
+  format: ColorFormat = "hex";
+
+  constructor(private panelService: PanelService) {
+  };
+  onColorChange(){
+    this.panelService.exportClientColor(this.color);
+  }
 }

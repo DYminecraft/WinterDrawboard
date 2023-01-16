@@ -1,7 +1,6 @@
 import {Component} from "@angular/core";
 import {NgForm, NgModel} from "@angular/forms";
-import {UserModel} from "../user.model";
-import {AuthService} from "../auth.service";
+import {AuthService} from "../../auth.service";
 
 @Component({
   selector: "app-login",
@@ -36,6 +35,10 @@ export class LoginComponent {
     if (form.invalid) {
       return;
     }
+    this.authService.userLogin(
+      form.value.clientNameOrNickname,
+      form.value.clientPassword);
+    // 如果登陆不成功……
     form.resetForm();
   }
 }

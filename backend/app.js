@@ -17,7 +17,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/WinterDrawboard?directConnection=tru
 // 启用CORS
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept");
+    res.setHeader("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Accept,authorization");
     res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE");
     next();
 });
@@ -37,6 +37,11 @@ app.use("/api/canvas", canvasRoute);
 // 反馈增、删、改、查、点赞
 const feedbackRoute = require("./route/feedback");
 app.use("/api/feedback", feedbackRoute);
+
+// 获取服务器时间
+app.use("/api/now", (req, res) => {
+    return res.json({message: "获取时间成功", now: Date.now()});
+});
 
 // 对于其余访问的链接，404 NOT FOUND
 app.use("**", (req, res) => {

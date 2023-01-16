@@ -1,41 +1,32 @@
-import {Component} from "@angular/core";
-import {Router, NavigationEnd, Event} from "@angular/router";
-import {filter, Subscription} from "rxjs";
-
+import {Component, OnDestroy, OnInit} from "@angular/core";
+import {AuthService} from "../auth.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.css"]
 })
-export class HeaderComponent {
-
-  private subscription!: Subscription;
-  private currentUrl: string = "";
-  userNameOrNickname: string = "Annst";
-
-  constructor(private router: Router) {
+export class HeaderComponent implements OnInit, OnDestroy {
+  constructor(private authService: AuthService) {
   }
 
+  userNameOrNickname: string = "Annst";
+
+  isClientLoggedIn: boolean = false;
+  private subscription: Subscription;
   ngOnInit() {
-    this.subscription = this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd)
-      )
-      .subscribe(
-        (event: Event) => {
-          this.currentUrl = (event as NavigationEnd).urlAfterRedirects;
-        }
-      );
+    this.subscription = this.authService.isLoggedInListener().subscribe(
+      isLoggedIn => {
+        this.isClientLoggedIn = isLoggedIn;
+      });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  private urlForLoggedInUser: string[] = ["/canvas", "/user", "/feedback"];
-
-  isLogIn() {
-    return this.urlForLoggedInUser.indexOf(this.currentUrl) > -1;
+  onLogout() {
+    this.authService.userLogout();
   }
 }

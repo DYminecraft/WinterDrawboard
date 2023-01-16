@@ -10,7 +10,7 @@ const UserController = require("../controller/user");
 router.get("/register", UserController.register);
 
 // 用户登录
-// {name:string, nickname:string, password:string} => {message:string, token:string}
+// {nameOrNickname:string, password:string} => {message:string, token:string, expiresIn:number}
 router.post("/login", UserController.login);
 
 // 导出 router

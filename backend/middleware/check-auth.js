@@ -6,7 +6,7 @@ const secretOrPrivateKey = "iWZqxl4IDgeyez7YAFauouGcFOCu4LQCYyrOXgLCttzjGZyMHjQj
 module.exports = (req, res, next) => {
     try {
         // 获取 req.header 中自定义的授权信息
-        const clientToken = req.header.authorization;
+        const clientToken = req.header.authorization.split(" ")[1];
 
         // 如果有，验证 token
         const decodedClientData = jwt.verify(clientToken, secretOrPrivateKey);

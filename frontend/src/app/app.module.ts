@@ -26,7 +26,9 @@ import {FormsModule} from "@angular/forms";
 import {MtxColorpickerModule} from "@ng-matero/extensions/colorpicker";
 import {MatMenuModule} from "@angular/material/menu";
 import {NgScrollbarModule} from "ngx-scrollbar";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./auth-interceptor";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -58,9 +60,12 @@ import {HttpClientModule} from "@angular/common/http";
     MtxColorpickerModule,
     MatMenuModule,
     NgScrollbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

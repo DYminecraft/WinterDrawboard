@@ -1,5 +1,5 @@
 <div
-  [ngStyle]="getDivStyle()">
+  [ngStyle]="{'height': this.canvas.divHeight + 'px', 'width': this.canvas.divWidth + 'px'}">
   <ng-scrollbar
     class="scroll-event"
     track="all"

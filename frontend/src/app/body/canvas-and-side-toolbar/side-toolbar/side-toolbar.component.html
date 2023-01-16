@@ -1,5 +1,5 @@
 <div>
-  <mat-card id="canvas">
+  <mat-card id="canvasPanel">
     <mat-card-header>
       <mat-card-title>
         绘板面板
@@ -32,10 +32,11 @@
     <mat-card-content id="color">
 
       <mat-form-field appearance="outline">
-        <mat-label [ngStyle]="{'background-color':color}">当前颜色</mat-label>
+        <mat-label>当前颜色</mat-label>
         <input
           matNativeControl
           [(ngModel)]="color"
+          (ngModelChange)="onColorChange()"
           [mtxColorpicker]="picker"
           [format]="format"
           [ngStyle]="{'background-color':color}">

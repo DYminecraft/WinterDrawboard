@@ -15,13 +15,13 @@
   <span class="split"></span>
 
   <span
-    *ngIf="isLogIn()"
+    *ngIf="isClientLoggedIn"
     id="message">
       欢迎回来，{{userNameOrNickname}}
     </span>
   <button
     mat-icon-button
-    *ngIf="isLogIn()"
+    *ngIf="isClientLoggedIn"
     [matMenuTriggerFor]="menu">
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
@@ -38,11 +38,11 @@
       <mat-icon>feedback</mat-icon>
       反馈
     </a>
-    <a
+    <button
       mat-menu-item
-      routerLink="/">
+      (click)="onLogout()">
       <mat-icon>exit_to_app</mat-icon>
       注销
-    </a>
+    </button>
   </mat-menu>
 </mat-toolbar>
