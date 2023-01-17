@@ -33,9 +33,9 @@ exports.get = (req, res) => {
 
 // 绘板绘画
 exports.draw = (req, res) => {
-    // x y color clientId
+    // x y color
     // 先找到 req.clientId 对应的用户
-    User.findOne({_id: req.body.clientId})
+    User.findOne({_id: req.clientId})
         .then(databaseReturn => {
             // 如果没有该用户
             if (!databaseReturn) return res.status(401).json({message: "绘板绘画失败"});
@@ -44,16 +44,16 @@ exports.draw = (req, res) => {
             const lastDraw = Date.parse(databaseReturn.lastDraw);
             const now = new Date();
 
-            if (Date.parse(now) - lastDraw < 10 * 1000) return res.status(401).json({message: "绘板绘画失败"});
+            if (now.parse() - lastDraw < 10 * 1000) return res.status(401).json({message: "绘板绘画失败"});
             // 如果没过，401
 
             // 如果过了，①更新lastDraw数据
-            return Promise.all(User.updateOne({_id: req.body.clientId}, {lastDraw: now.toISOString()}), now);
+            return Promise.all(User.updateOne({_id: req.clientId}, {lastDraw: now.toISOString()}), now);
         })
         .then((databaseReturn, now) => {
             // ②更新绘画记录
             const drawrecord = new Drawrecord({
-                                                  creator: req.body.clientId,
+                                                  creator: req.clientId,
                                                   datetime: now.toISOString(),
                                                   x: req.body.x,
                                                   y: req.body.y,

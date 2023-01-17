@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {NgForm, NgModel} from "@angular/forms";
 import {AuthService} from "../../auth.service";
 
@@ -7,11 +7,15 @@ import {AuthService} from "../../auth.service";
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   clientNameOrNicknameErrorMessage: string = "";
   clientPasswordErrorMessage: string = "";
 
   constructor(private authService: AuthService) {
+  }
+
+  ngOnInit() {
+    this.authService.userAutoLogin();
   }
 
   isClientNameOrNicknameInvalid(input: NgModel) {
@@ -38,7 +42,7 @@ export class LoginComponent {
     this.authService.userLogin(
       form.value.clientNameOrNickname,
       form.value.clientPassword);
-    // 如果登陆不成功……
+
     form.resetForm();
   }
 }

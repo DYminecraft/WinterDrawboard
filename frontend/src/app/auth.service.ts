@@ -25,7 +25,7 @@ export class AuthService {
     return this.token;
   }
 
-  // 给?用，获取登录状态
+  // 给?用，获取当时的登录状态
   getIsLoggedIn() {
     return this.isLoggedIn;
   }
@@ -42,6 +42,9 @@ export class AuthService {
 
     // 如果没有，直接返回
     if (!clientData) return;
+
+    // 如果有，但是 token 莫名其妙消失了，登出
+    if (!clientData.token) this.userLogout();
 
     // 如果有，先看看过没过期。获取一下服务器时间
     this.http.get<{ message: string, now: number }>("http://localhost:3000/api/now").subscribe(
@@ -77,7 +80,7 @@ export class AuthService {
     this.http.post<{ message: string, token: string, expiresIn: number, now: number }>("http://localhost:3000/api/user/login", body)
       .subscribe(
         response => {
-          // 如果没有用户，直接返回
+          // 如果没有用户，返回 false
           if (!response.token)
             return;
 
@@ -88,7 +91,7 @@ export class AuthService {
 
           // ②计算 token 的到期日期，保存 ClientData 到浏览器
           let expireDate = new Date(response.now + response.expiresIn * 1000);
-          this.saveClientData(this.token, expireDate);
+          this.saveClientData(response.token, expireDate);
 
           // ③登录咯
           this.login(response.token);

@@ -5,17 +5,14 @@ const secretOrPrivateKey = "iWZqxl4IDgeyez7YAFauouGcFOCu4LQCYyrOXgLCttzjGZyMHjQj
 // 中间件：检查用户客户端是否有合法 token
 module.exports = (req, res, next) => {
     try {
-        // 获取 req.header 中自定义的授权信息
-        const clientToken = req.header.authorization.split(" ")[1];
+        // 获取 req.headers 中自定义的授权信息
+        const clientToken = req.headers.authorization.split(" ")[1];
 
         // 如果有，验证 token
         const decodedClientData = jwt.verify(clientToken, secretOrPrivateKey);
 
         // 如果有，在 req 添加用户 id，便于后续与 canvas 和 feedback 操作关联
         req.clientId = decodedClientData.id;
-
-        // Log
-        res.status(200).json({message: "用户已登录"});
 
         // 调用后续的中间件
         next();

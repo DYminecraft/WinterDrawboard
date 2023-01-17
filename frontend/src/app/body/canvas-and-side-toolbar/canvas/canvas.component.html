@@ -1,13 +1,13 @@
 <div
-  [ngStyle]="{'height': this.canvas.divHeight + 'px', 'width': this.canvas.divWidth + 'px'}">
+  [ngStyle]="{'height': getDivHeight() + 'px', 'width': getDivWidth() + 'px'}">
   <ng-scrollbar
     class="scroll-event"
     track="all"
     visibility="always">
     <canvas
       id="canvas"
-      [height]="canvas.canvasHeight"
-      [width]="canvas.canvasWidth">
+      [height]="getHeight()"
+      [width]="getWidth()">
     </canvas>
   </ng-scrollbar>
 </div>
